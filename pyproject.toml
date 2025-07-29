@@ -1,0 +1,105 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guardian-ai"
+version = "0.1.0"
+description = "Real-Time Fraud Detection Orchestrator with Multi-Agent System"
+readme = "README.md"
+requires-python = ">=3.12.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    # Vector Database & LangChain Ecosystem (compatible with Python 3.12.10)
+    "qdrant-client==1.11.3",
+    "langchain==0.3.7",
+    "langchain-community==0.3.7", 
+    "langchain-openai==0.2.8",
+    "langchain-core==0.3.17",
+    "langchain-qdrant==0.1.4",
+    "langgraph==0.2.34",
+    "langsmith==0.1.143",
+    
+    # Multi-Agent Framework
+    "crewai==0.150.0",
+    
+    # ML/NLP Core (tested versions for Python 3.12)
+    "transformers==4.47.0",
+    "torch==2.5.1",
+    "datasets==3.1.0",
+    "peft==0.13.2",
+    "accelerate==1.2.1",
+    
+    # API Framework
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.32.1",
+    
+    # Data Science Stack
+    "pandas==2.2.3",
+    "numpy==1.26.4",
+    "scikit-learn==1.5.2",
+    
+    # Visualization
+    "plotly==5.24.1",
+    "seaborn==0.13.2",
+    "matplotlib==3.9.2",
+    
+    # Utilities
+    "faker==30.8.2",
+    "requests==2.32.3",
+    
+    # AI Evaluation & Embeddings
+    "ragas==0.2.3",
+    "sentence-transformers==3.3.1",
+    "openai==1.68.2",
+    
+    # Additional compatibility packages
+    "pydantic==2.10.4",
+    "typing-extensions==4.12.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "isort",
+    "flake8",
+    "mypy",
+    "pre-commit",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["guardian_ai*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
