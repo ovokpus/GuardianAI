@@ -65,6 +65,12 @@ dependencies = [
     # Additional compatibility packages
     "pydantic==2.10.4",
     "typing-extensions==4.12.2",
+    
+    # Jupyter Notebook Environment
+    "jupyter==1.1.1",
+    "jupyterlab==4.3.3",
+    "ipykernel==6.29.5",
+    "notebook==7.3.1",
 ]
 
 [project.optional-dependencies]
